@@ -1,0 +1,71 @@
+-- Supplier View [Simple View]
+CREATE VIEW view_Supplier AS
+SELECT *
+FROM Supplier
+
+-- MaterialGoods stock View (MaterialGoods) [Simple View]
+CREATE VIEW view_MaterialGoods_Stock AS
+SELECT Namaproduk, jumlahstock, satuan
+FROM MaterialGoods
+
+-- PurchaseGoods view [Simple View]
+CREATE VIEW view_PurchaseGoods AS
+SELECT * 
+FROM PurchaseGoods
+
+-- PurchaseDetail view [Simple View]
+CREATE VIEW view_PurchaseDetail AS
+SELECT * 
+FROM PurchaseDetail
+
+-- category view [Simple View]
+CREATE VIEW view_Category AS
+SELECT * 
+FROM Category
+
+-- FinishedGoods view [Simple View]
+CREATE VIEW view_FinishedGoods AS
+SELECT * 
+FROM FinishedGoods
+
+-- Conversion view [Simple View]
+CREATE VIEW view_Conversion AS
+SELECT * 
+FROM Conversion
+
+-- Customer Address view (Customer) [Simple View]
+CREATE VIEW view_Customer_Address AS
+SELECT IDCustomer, AlamatCustomer
+FROM Customer
+
+
+-- Payment view [Simple View]
+CREATE VIEW view_Payment AS
+SELECT *
+FROM payment
+
+-- Qris view [Simple View]
+CREATE VIEW view_Qris AS
+SELECT *
+FROM Qris
+
+-- Cash view [Simple View]
+CREATE VIEW view_Cash AS
+SELECT *
+FROM Cash
+
+-- Karyawan View [simple view]
+CREATE VIEW view_Karyawan AS
+SELECT *
+FROM Karyawan
+
+-- job description view [simple view]
+CREATE VIEW view_Karyawan AS
+SELECT *
+FROM Karyawan
+
+-- Combined Sales View multiple (Sales transaction + sales detail) [Complex view]
+CREATE VIEW view_Combined_Sales_Multiple AS
+SELECT idpenjualan, tanggalpenjualan, UPPER(metodepembayaran) AS pembayaran , cus_idcustomer, payment_idpayment, fgd_idproduk, quantity
+FROM SalesTransaction st JOIN SalesDetail sd ON st.idpenjualan = sd.str_idpenjualan
+WHERE Quantity >=2
